@@ -17,7 +17,8 @@
             crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
 </head>
 <body>
-
+<!--/*@thymesVar id="recipe" type="guru.springframework.domain.Recipe"*/-->
+<!--/*@thymesVar id="recipes" type="java.util.List"*/-->
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -45,10 +46,10 @@
                                 <td>Tasty Goodness 2</td>
                                 <td><a href="#">View</a></td>
                             <tr th:each="recipe : ${recipes}">
-                                <!--/*@thymesVar id="recipe" type="guru.springframework.domain.Recipe"*/-->
                                 <td th:text="${recipe.id}">ID</td>
                                 <td th:text="${recipe.description}">DESCRIPTION</td>
-                                <td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">VIEW</a></td>
+                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/show/'}">VIEW</a></td>
+                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/update/'}">UPDATE</a></td>
                             </tr>
                         </table>
                     </div>
